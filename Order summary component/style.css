@@ -32,8 +32,10 @@
 body {
     font-family: var(--font-family);
 
-    background-image: url("/images/pattern-background-desktop.svg");
-
+    background-image: url(../images/pattern-background-desktop.svg);
+    background-repeat: no-repeat;
+    background-color: #e0e8ff;
+    
     display: flex;
     align-items: center;
     justify-items: center;
