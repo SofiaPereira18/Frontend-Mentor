@@ -1,0 +1,162 @@
+@import url(https://fonts.google.com/specimen/Red+Hat+Display);
+
+
+:root {
+    /* Width of dispositives */
+    --mobile-width: 375px;
+    --desktop-width: 1440px;
+
+    /* Primary colors */
+    --Pale-blue: hsl(225, 100%, 94%);
+    --Bright-blue: hsl(245, 75%, 52%);
+
+    /* Neutral colors */
+    --Very-pale-blue: hsl(225, 100%, 98%);
+    --Desaturated-blue: hsl(224, 23%, 55%);
+    --Dark-blue: hsl(223, 47%, 23%);
+
+    /* Buttons colors */
+    --Hawkes-blue: #d8e8fb;
+    --Cornflower-blue: #766cf1;
+
+    /* Fonts and sizes */
+    --font-family: 'Red Hat Display', sans-serif;
+
+    --font-weight-regular: 500;
+    --font-weight-bold: 700;
+    --font-weight-black: 900;
+
+    --font-size: 16px;
+}
+
+body {
+    font-family: var(--font-family);
+
+    background-image: url("/images/pattern-background-desktop.svg");
+
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+
+.card {
+    width: 350px;
+    height: 470px;
+    border: none;
+    border-radius: 8px;
+    margin-top: 70px;
+    margin-bottom: 10px;
+
+    background-color: white;
+}
+
+.first-section img {
+    width: 350px;
+    height: 150px;
+    border-radius: 8px 8px 0px 0px;
+}
+
+.second-section {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.second-section p {
+    margin-top: 0;
+}
+
+/* Plan section */
+
+.plan-section {
+    background-color: rgba(248,249,254,255);
+    width: 83%;
+    height: 60px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    padding-left: 8px;
+
+    display: flex; 
+    align-items: center; 
+}
+
+.type-plan {
+    flex-grow: 1; 
+}
+  
+.plan-title {
+    font-weight: bold; 
+    margin: 0; 
+    margin-left: -25px;
+}
+
+.plan-price {
+    margin: 0; 
+    margin-left: -25px;
+}
+
+.plan-section img {
+    border-radius: 90%;
+    background-color: rgba(222,228,250,255);
+}
+
+.grey-text {
+    color: grey;
+}
+
+/* Buttons */
+
+button {
+    border: none;
+    border-radius: 8px;
+    background-color: transparent;
+    font-weight: bold;
+
+    padding: 8px 18px 8px 18px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.change-btn {
+    color: #2f28cb;
+    text-decoration: underline;
+}
+
+.change-btn:hover {
+    color: var(--Cornflower-blue);
+    text-decoration: none;
+}
+
+.proceed-btn {
+    background-color: #2f28cb;
+    color: white;
+    width: 85%;
+    height: 40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.proceed-btn:hover {
+    background-color: var(--Cornflower-blue);
+}
+
+.cancel-btn:hover {
+    color: var(--Bright-blue);
+}
+
+/* already given css */ 
+.attribution { 
+    font-size: 11px;
+    text-align: center; 
+}
+
+.attribution a { 
+    color: hsl(228, 45%, 44%); 
+}
