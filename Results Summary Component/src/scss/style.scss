@@ -1,0 +1,211 @@
+$category-colors: (
+    /* Primary colors */
+    hsl(0, 100%, 67%),
+    hsl(39, 100%, 56%),
+    hsl(166, 100%, 37%),
+    hsl(234, 85%, 45%)
+); 
+
+
+/* Gradients colors */
+    /* background */
+$light-slate-blue: hsl(252, 100%, 67%);
+$light-royal-blue: hsl(241, 81%, 54%);
+
+    /* circle */
+$violet-blue: hsla(256, 72%, 46%, 1);
+$persian-blue: hsla(241, 72%, 46%, 0);
+
+
+/* Neutral colors */
+
+$white: hsl(0, 0%, 100%);
+$pale-blue: hsl(221, 100%, 96%);    
+$light-lavender: hsl(241, 100%, 89%);
+$dark-gray-blue: hsl(224, 30%, 27%);
+
+$border-radius: 25px;
+
+@font-face {
+    font-family: 'Hanken Grotesk';
+    src: url("/assets/fonts/HankenGrotesk-VariableFont_wght.ttf");
+}
+
+body {
+  font-family: 'Hanken Grotesk';
+  background-color: $pale-blue;
+  margin-top: 120px;
+
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+}
+
+.card {
+    border-radius: $border-radius;
+    border: none;
+    background-color: white;
+    width: 550px;
+    height: 350px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    position: relative; 
+
+    .left-section {
+        background-image: linear-gradient(to bottom, $light-slate-blue, $light-royal-blue);
+        border-radius: $border-radius;
+        border: none;
+        color: white;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+        .circle {
+            background-image: linear-gradient($violet-blue, $persian-blue);
+            border-radius: 50%;
+    
+            height: 150px;
+            width: 150px;
+            
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+    
+            p {
+                margin: 0;
+            }
+        }
+
+        .classification-text {
+            font-size: 25px; 
+            font-weight: bold; 
+            margin: 10px 0px 0px 0px;
+            
+        }
+    
+        .description-text {
+            font-size: 12px; 
+            line-height: 1.5; 
+            color: $light-lavender;
+            margin-top: -8px;
+            white-space: pre-line;
+        }
+
+        .big-text {
+            font-size: 50px;
+            font-weight: bold;
+        }
+    
+        .grey-text {
+            color: $light-lavender;
+        }
+    
+        .result-text {
+            font-size: 18px;
+            font-weight: bold;
+        }
+    }
+
+
+
+    .right-section {
+        border-radius: $border-radius;
+        margin-left: 10px;
+
+        .summary-text {
+            margin-left: 18px;
+            margin-top: 25px;
+        }
+
+        .perc-text {
+            color: grey;
+        }
+
+        button {
+            background-color: rgba(48,59,89,255);
+            color: white;
+            border: none;
+            border-radius: $border-radius;
+            width: 90%;
+            height: 45px;
+            margin-left: 10px;
+            margin-top: 20px;
+    
+    
+            &:hover {
+                background: linear-gradient(to bottom, $light-slate-blue, $light-royal-blue);
+                cursor: pointer;
+            }
+        }
+
+    }
+
+    .summary-cards {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        @for $i from 1 through length($category-colors) {
+            .summary-card:nth-child(#{$i}) {
+                $base-color: nth($category-colors, $i);
+                $adjusted-color: $base-color;
+
+                // adjust the lighness to each color
+                @if $i == 1 {
+                    $adjusted-color: adjust-color($base-color, $lightness: 31%);
+                } @else if $i == 2 {
+                    $adjusted-color: adjust-color($base-color, $lightness: 41%);
+                } @else if $i == 3 {
+                    $adjusted-color: adjust-color($base-color, $lightness: 60%);
+                } @else if $i == 4 {
+                    $adjusted-color: adjust-color($base-color, $lightness: 53%);
+                } 
+
+                background-color: $adjusted-color;
+                color: $base-color;
+            }
+        }
+
+        .summary-card {
+            width: 85%;
+            height: 40px;
+    
+            border-radius: 8px;
+            margin-bottom: 10px;
+    
+            display: flex;
+            align-items: center; 
+            justify-content: space-between;
+    
+            .category {
+                display: flex;
+                align-items: center; 
+                gap: 10px;  /* espaco entre imagem e texto */
+                font-weight: 550;
+            }
+
+    
+            .score {
+                margin-right: 15px;
+                font-size: 14px;
+
+                .score-text {
+                    font-weight: 600;
+                    color: $dark-gray-blue;
+                }
+            }
+    
+            img {
+                width: 17px;
+                margin-left: 8px;
+            }
+        }
+    }
+}
